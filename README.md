@@ -97,7 +97,7 @@ Feel free to fork this repository and submit pull requests. Bug fixes, suggestio
 
 ## Author
 
-- Patricia Marie (modified from original version by Pan Luo)
+- Peter Joshua P. Pagunsan(modified from original version by Pan Luo)
 
 ---
 
