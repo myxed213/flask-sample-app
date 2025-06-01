@@ -1,91 +1,111 @@
-# Flask Sample App with Tests
+# Flask CRUD API with Unit Tests
 
-This is a simple Flask web application with unit tests. The application provides a basic REST API for managing a list of items. It serves as a starting point for learning how to create a Flask application and write tests for it.
+This is a simple Flask web application that provides a full RESTful API for managing a list of items. It includes unit tests and is ideal for learning how to structure a basic Flask project with CRUD operations and automated testing.
 
 ## Project Structure
 
-The project is organized as follows:
-
-- `app/`: Contains the Flask application and routes.
-- `tests/`: Houses unit tests for the application.
-- `run.py`: A script to run the Flask application.
+flask_crud_app/
+├── app/
+│   └── routes.py         # Flask routes with full CRUD support
+├── tests/
+│   └── test_app.py       # Unit tests for the Flask app
+├── run.py                # Entry point to run the Flask app
+├── requirements.txt      # Project dependencies
+└── README.md             # Project documentation
 
 ## Getting Started
 
-To get the Flask app up and running on your local machine, follow these steps:
+Follow these steps to set up and run the application locally:
 
-1. **Clone the Repository:**
+### 1. Clone the Repository
 
-   ```bash
-   git clone <repository_url>
-   cd flask_sample_app
-   ```
+    git clone <repository_url>
+    cd flask_crud_app
 
-2. **Set Up a Virtual Environment:**
+### 2. Set Up a Virtual Environment (Recommended)
 
-   It's recommended to create a virtual environment to isolate project dependencies.
+    python -m venv venv
+    # On Windows:
+    venv\Scripts\activate
+    # On Unix or MacOS:
+    source venv/bin/activate
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use venv\Scripts\activate
-   ```
+### 3. Install Dependencies
 
-3. **Install Dependencies:**
+    pip install -r requirements.txt
 
-   Install the necessary dependencies using `pip`:
+### 4. Run the Flask Application
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+    python run.py
 
-4. **Run the Application:**
+The app will run at [http://localhost:5000](http://localhost:5000).
 
-   Start the Flask application:
+### 5. Run the Unit Tests
 
-   ```bash
-   python run.py
-   ```
+    python -m unittest discover tests
 
-   The app will be available at [http://localhost:5000](http://localhost:5000).
+This will discover and run all unit tests in the `tests/` directory.
 
-5. **Run Tests:**
+---
 
-   To run the unit tests, execute the following command:
+## API Endpoints
 
-   ```bash
-   python -m unittest discover tests
-   ```
+| Method | Endpoint         | Description                      |
+|--------|------------------|---------------------------------|
+| GET    | `/`              | Returns a greeting message       |
+| GET    | `/items`         | Retrieves all items              |
+| GET    | `/items/<id>`    | Retrieves a specific item by ID  |
+| POST   | `/items`         | Adds a new item (expects JSON)   |
+| PUT    | `/items/<id>`    | Updates an existing item         |
+| DELETE | `/items/<id>`    | Deletes an item by ID            |
 
-   This command will discover and run all tests in the `tests` directory.
+Example `POST /items` JSON body:
 
-## Application Routes
+    {
+      "name": "Item 1"
+    }
 
-The application provides the following routes:
-
-- `GET /`: Returns a simple greeting message.
-- `GET /items`: Returns a list of items.
-- `GET /items/{item_id}`: Returns the details of a specific item.
-- `POST /items`: Adds a new item to the list.
+---
 
 ## Testing
 
-Unit tests are provided in the `tests` directory. They cover the basic functionality of the application, including route handling and response validation. You can use these tests as a reference to write your own tests or to verify the correctness of the application.
+Unit tests are located in `tests/test_app.py`. They cover:
+
+- Greeting route
+- Item addition
+- Item retrieval (existing and non-existing)
+- Item update
+- Item deletion
+
+Run tests using:
+
+    python -m unittest discover tests
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
 
 ## Contribute
 
-Feel free to contribute to this project by opening issues or submitting pull requests. We welcome any improvements, bug fixes, or additional features.
+Feel free to fork this repository and submit pull requests. Bug fixes, suggestions, and improvements are welcome!
+
+---
 
 ## Author
 
-- Pan Luo
+- Patricia Marie (modified from original version by Pan Luo)
+
+---
 
 ## Acknowledgments
 
-- This project was created as a sample Flask application for educational purposes.
-- Special thanks to the Flask community for providing a fantastic web framework.
+- Based on an educational Flask sample project.
+- Inspired by the Flask community and best practices.
 
-Enjoy experimenting with the Flask sample app! If you have any questions or need further assistance, please don't hesitate to reach out.
+---
+
+Happy coding! 🎉
