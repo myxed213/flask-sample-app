@@ -1,5 +1,3 @@
-# tests/__init__.py
-
-from flask_testing import TestCase
-from app import app
-
+from flask import Flask
+app = Flask(__name__)
+from app import routes
